@@ -1,0 +1,37 @@
+<p>app-components works!</p>
+<h1>{{ abc }}</h1>
+
+<input type="text" [(ngModel)]="inputValue" />
+<p (click)="showAlert()">Click me</p>
+
+<span>{{ inputValue }}</span>
+
+<select [(ngModel)]="inputValue">
+  <option value="First Option">First Option</option>
+  <option value="Second Option">Second Option</option>
+  <option value="Third Option">Third Option</option>
+  <option value="Fourth Option">Fourth Option</option>
+</select>
+
+<input type="text" />
+
+<div *ngIf="firstDivViewAngle" class="first-div">
+  <span>First Div</span>
+  <h5>Heading</h5>
+  <p>Content</p>
+</div>
+<button type="button" (click)="toggleFirstDiv()">Toggle Hide / Show</button>
+<div *ngIf="secondDivViewAngle" class="second-div">
+  <span>Second Div</span>
+  <h5>Heading</h5>
+  <p>Content</p>
+</div>
+<button type="button" (click)="toggleSecondDiv()">Toggle Hide / Show</button>
+
+<div *ngFor="let string of arrayString">
+  <h6>{{ string }}</h6>
+</div>
+<br />
+<div *ngFor="let string of arrayOfObject">
+  <h6>{{ string.name }}</h6>
+</div>

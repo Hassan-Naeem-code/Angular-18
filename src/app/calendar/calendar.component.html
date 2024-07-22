@@ -1,0 +1,28 @@
+<!-- src/app/calendar/calendar.component.html -->
+<div class="container-fluid">
+  <div class="container text-center my-5">
+    <form [formGroup]="appointmentForm" (ngSubmit)="addAppointment()">
+      <mat-form-field class="mx-2">
+        <mat-label>Title</mat-label>
+        <input matInput formControlName="title" />
+      </mat-form-field>
+      <mat-form-field class="mx-2">
+        <mat-label>Date</mat-label>
+        <input matInput formControlName="date" type="date" />
+      </mat-form-field>
+      <button mat-raised-button color="secondary" type="submit">
+        Add Appointment
+      </button>
+    </form>
+  </div>
+
+  <div class="calendar">
+    <div *ngFor="let day of calendar">
+      <div>{{ day.index }} {{ day.dayName }}</div>
+    </div>
+    <div *ngFor="let appointment of appointments$ | async" cdkDrag>
+      <div>{{ appointment.title }} - {{ appointment.date | date }}</div>
+      <button (click)="deleteAppointment(appointment.id)">Delete</button>
+    </div>
+  </div>
+</div>
